@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BREACHLINE — Neon Tactical FPS</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<canvas id="game-canvas"></canvas>
+
+<div id="hud">
+  <div id="topbar">
+    <div id="round-box">
+      <div id="round-label">ROUND 1 / 5</div>
+      <div id="round-timer">1:30</div>
+      <div id="pips"><span id="pips-you"></span><span class="pips-vs">YOU — FOE</span><span id="pips-foe"></span></div>
+    </div>
+  </div>
+
+  <canvas id="minimap" width="168" height="132"></canvas>
+  <div id="objective">Plant the spike at A or B — or eliminate the squad.</div>
+  <div id="killfeed"></div>
+
+  <div id="crosshair"><i></i><i></i><i></i><i></i><span></span></div>
+  <div id="hitmarker"><i></i><i></i><i></i><i></i></div>
+
+  <div id="banner" class="hidden">
+    <div id="banner-title"></div>
+    <div id="banner-sub"></div>
+  </div>
+
+  <div id="plant-bar" class="hidden">
+    <div id="plant-label">PLANTING</div>
+    <div id="plant-track"><div id="plant-fill"></div></div>
+  </div>
+
+  <div id="hint"></div>
+
+  <div id="vitals">
+    <div id="health-row"><span class="vital-label">HP</span><span id="health-num">100</span>
+      <div class="bar"><div id="health-bar"></div></div>
+    </div>
+    <div id="armor-row"><span class="vital-label">ARMOR</span><span id="armor-num">0</span>
+      <div class="bar"><div id="armor-bar"></div></div>
+    </div>
+    <div id="credits">₡ 800</div>
+  </div>
+
+  <div id="ammo-box">
+    <div id="weapon-name">KESTREL P9</div>
+    <div id="ammo"><span id="ammo-mag">12</span><span id="ammo-reserve">/ 60</span></div>
+  </div>
+
+  <div id="damage-flash"></div>
+</div>
+
+<div id="buy-panel" class="hidden">
+  <section class="panel">
+    <h2>BUY PHASE</h2>
+    <p class="panel-sub">Spend your credits. The round starts when you deploy — or when the timer runs out.</p>
+    <div id="buy-timer">25s</div>
+    <div id="buy-list"></div>
+    <button id="deploy-btn" type="button">DEPLOY ▸</button>
+    <p class="panel-keys">Keys 1–4 buy · Enter deploys</p>
+  </section>
+</div>
+
+<div id="overlay" class="overlay">
+  <section class="panel">
+    <h1 id="overlay-title">BREACHLINE</h1>
+    <p id="overlay-copy"></p>
+    <button id="overlay-action" type="button">CLICK TO DEPLOY</button>
+    <div id="overlay-stats"></div>
+  </section>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/three.module.min.js"
+  }
+}
+</script>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
